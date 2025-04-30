@@ -1,0 +1,773 @@
+<!DOCTYPE html><html><head>
+      <title>CH2.OSWindow</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="file:///C:\nitro_scoop\persist\vscode\data\extensions\shd101wyy.markdown-preview-enhanced-0.8.18\crossnote\dependencies\katex\katex.min.css">
+      
+      
+      
+      
+      
+      <style>
+      code[class*=language-],pre[class*=language-]{color:#333;background:0 0;font-family:Consolas,"Liberation Mono",Menlo,Courier,monospace;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.4;-moz-tab-size:8;-o-tab-size:8;tab-size:8;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none}pre[class*=language-]{padding:.8em;overflow:auto;border-radius:3px;background:#f5f5f5}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal;background:#f5f5f5}.token.blockquote,.token.comment{color:#969896}.token.cdata{color:#183691}.token.doctype,.token.macro.property,.token.punctuation,.token.variable{color:#333}.token.builtin,.token.important,.token.keyword,.token.operator,.token.rule{color:#a71d5d}.token.attr-value,.token.regex,.token.string,.token.url{color:#183691}.token.atrule,.token.boolean,.token.code,.token.command,.token.constant,.token.entity,.token.number,.token.property,.token.symbol{color:#0086b3}.token.prolog,.token.selector,.token.tag{color:#63a35c}.token.attr-name,.token.class,.token.class-name,.token.function,.token.id,.token.namespace,.token.pseudo-class,.token.pseudo-element,.token.url-reference .token.variable{color:#795da3}.token.entity{cursor:help}.token.title,.token.title .token.punctuation{font-weight:700;color:#1d3e81}.token.list{color:#ed6a43}.token.inserted{background-color:#eaffea;color:#55a532}.token.deleted{background-color:#ffecec;color:#bd2c00}.token.bold{font-weight:700}.token.italic{font-style:italic}.language-json .token.property{color:#183691}.language-markup .token.tag .token.punctuation{color:#333}.language-css .token.function,code.language-css{color:#0086b3}.language-yaml .token.atrule{color:#63a35c}code.language-yaml{color:#183691}.language-ruby .token.function{color:#333}.language-markdown .token.url{color:#795da3}.language-makefile .token.symbol{color:#795da3}.language-makefile .token.variable{color:#183691}.language-makefile .token.builtin{color:#0086b3}.language-bash .token.keyword{color:#0086b3}pre[data-line]{position:relative;padding:1em 0 1em 3em}pre[data-line] .line-highlight-wrapper{position:absolute;top:0;left:0;background-color:transparent;display:block;width:100%}pre[data-line] .line-highlight{position:absolute;left:0;right:0;padding:inherit 0;margin-top:1em;background:hsla(24,20%,50%,.08);background:linear-gradient(to right,hsla(24,20%,50%,.1) 70%,hsla(24,20%,50%,0));pointer-events:none;line-height:inherit;white-space:pre}pre[data-line] .line-highlight:before,pre[data-line] .line-highlight[data-end]:after{content:attr(data-start);position:absolute;top:.4em;left:.6em;min-width:1em;padding:0 .5em;background-color:hsla(24,20%,50%,.4);color:#f4f1ef;font:bold 65%/1.5 sans-serif;text-align:center;vertical-align:.3em;border-radius:999px;text-shadow:none;box-shadow:0 1px #fff}pre[data-line] .line-highlight[data-end]:after{content:attr(data-end);top:auto;bottom:.4em}html body{font-family:'Helvetica Neue',Helvetica,'Segoe UI',Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ol,html body>ul{margin-bottom:16px}html body ol,html body ul{padding-left:2em}html body ol.no-list,html body ul.no-list{padding:0;list-style-type:none}html body ol ol,html body ol ul,html body ul ol,html body ul ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;background-color:#f0f0f0;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:700;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:700}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::after,html body code::before{letter-spacing:-.2em;content:'\00a0'}html body pre>code{padding:0;margin:0;word-break:normal;white-space:pre;background:0 0;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:after,html body pre code:before,html body pre tt:after,html body pre tt:before{content:normal}html body blockquote,html body dl,html body ol,html body p,html body pre,html body ul{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body code,html body pre{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview ul{list-style:disc}.markdown-preview ul ul{list-style:circle}.markdown-preview ul ul ul{list-style:square}.markdown-preview ol{list-style:decimal}.markdown-preview ol ol,.markdown-preview ul ol{list-style-type:lower-roman}.markdown-preview ol ol ol,.markdown-preview ol ul ol,.markdown-preview ul ol ol,.markdown-preview ul ul ol{list-style-type:lower-alpha}.markdown-preview .newpage,.markdown-preview .pagebreak{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center!important}.markdown-preview:not([data-for=preview]) .code-chunk .code-chunk-btn-group{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .status{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .output-div{margin-bottom:16px}.markdown-preview .md-toc{padding:0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link div,.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}.markdown-preview .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0;min-height:100vh}@media screen and (min-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{font-size:14px!important;padding:1em}}@media print{html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc{padding:0 16px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link div,html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% - 300px);padding:2em calc(50% - 457px - 300px / 2);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+@font-face {
+  font-family: "Bahnschrift REY";
+  src: local("Bahnschrift"), url("https://github.com/flying-whales/flying-whales/raw/20e98b4dd0388a3fafd09acb8b07e5bd3dc701b9/Assets/Fonts/bahnschrift.ttf") format(ttf);
+}
+@font-face {
+  font-family: "AudioLink Mono Bold REY";
+  src: local('AudioLink Mono Bold'), url("https://audiolink.dev/gallery/AudioLinkMono-Regular.ttf") format(ttf);
+}
+@font-face {
+  font-family: "Emoji REY";
+  src: url("https://github.com/KingDragoness/Shopkeepers/raw/952118221585de23b747560b89ee17061e34c0f4/Project%20Shopkeepers%20root/Assets/Resources/Fonts/seguiemj.ttf");
+}
+.markdown-preview.markdown-preview {
+  padding: 2em calc(40% - 457px + 2em) !important;
+  /**
+    h1 {
+        page-break-before: always;
+    }
+    */
+  font-size: 24px;
+  font-family: 'Bahnschrift', 'Emoji REY', monospace;
+  font-stretch: condensed;
+  font-weight: 100;
+  /** However, background-clip is not supported by princexml */
+}
+.markdown-preview.markdown-preview blockquote {
+  padding-top: 1em;
+  padding-bottom: 1em;
+  font-size: 90%;
+}
+.markdown-preview.markdown-preview code {
+  font-family: 'AudioLink Mono Bold REY', 'Lotion', 'Emoji REY', monospace;
+  font-size: 90%;
+}
+.markdown-preview.markdown-preview pre > code {
+  font-size: 16px;
+}
+.markdown-preview.markdown-preview .REY_SMALLER_CODE {
+  font-size: 0.7em;
+}
+.markdown-preview.markdown-preview .REY_SMALLER_CODE > pre > code {
+  font-size: 0.95em;
+  line-height: 100%;
+}
+.markdown-preview.markdown-preview ul > li ol > li,
+.markdown-preview.markdown-preview ol > li ol > li,
+.markdown-preview.markdown-preview ul > li ul > li,
+.markdown-preview.markdown-preview ol > li ul > li {
+  font-family: 'Fira Sans Condensed', 'Emoji REY', monospace;
+  font-weight: 300;
+  font-size: 90%;
+}
+.markdown-preview.markdown-preview pre {
+  page-break-inside: auto;
+  /* REYNEP MOD */
+}
+.markdown-preview.markdown-preview h4 {
+  margin-bottom: 0.5em;
+}
+.markdown-preview.markdown-preview h5 {
+  margin-top: 0.5em;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+.markdown-preview.markdown-preview img {
+  -prince-image-resolution: 150dpi;
+  /* set an explicit DPI */
+}
+.markdown-preview.markdown-preview img.makeSmall_NoFlex {
+  -prince-image-resolution: 160dpi;
+  /* set an explicit DPI */
+}
+.markdown-preview.markdown-preview img.makeSmall {
+  -prince-image-resolution: 160dpi;
+  /* set an explicit DPI */
+  float: left;
+  margin-right: 15px;
+}
+.markdown-preview.markdown-preview img.makeSmaller {
+  -prince-image-resolution: 180dpi;
+  /* set an explicit DPI */
+  float: left;
+  margin-right: 20px;
+}
+.markdown-preview.markdown-preview img.makeSmallest {
+  -prince-image-resolution: 200dpi;
+  /* set an explicit DPI */
+  float: left;
+  margin-right: 20px;
+}
+.markdown-preview.markdown-preview .REY_DocTitle {
+  text-align: center;
+  font-size: 30px;
+  background: linear-gradient(145deg, #ff7f00, #8e44ad);
+  /* Orange to Purple Gradient */
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  letter-spacing: 2px;
+  margin: 0;
+  font-weight: bold;
+}
+.markdown-preview.markdown-preview .REY_PAGEBREAK {
+  margin-bottom: 300px;
+}
+.markdown-preview.markdown-preview.prince {
+  color: black !important;
+  font-family: 'Bahnschrift Light Condensed';
+  font-size: 12.5px;
+  font-weight: 100;
+}
+.markdown-preview.markdown-preview.prince .REY_NOSHOW_PDF {
+  display: none !important;
+}
+.markdown-preview.markdown-preview.prince .REY_PDF_MORE_HEIGHT {
+  margin-top: -70pt;
+}
+.markdown-preview.markdown-preview.prince .REY_PAGEBREAK {
+  margin-bottom: 0px;
+}
+.markdown-preview.markdown-preview.prince .REY_SMALLER_CODE > pre > code {
+  font-size: 1em;
+  line-height: 100%;
+}
+.markdown-preview.markdown-preview.prince h1,
+.markdown-preview.markdown-preview.prince h2,
+.markdown-preview.markdown-preview.prince h3,
+.markdown-preview.markdown-preview.prince h4,
+.markdown-preview.markdown-preview.prince h5,
+.markdown-preview.markdown-preview.prince h6 {
+  font-family: 'Bahnschrift';
+}
+.markdown-preview.markdown-preview.prince ul > li ol > li,
+.markdown-preview.markdown-preview.prince ol > li ol > li,
+.markdown-preview.markdown-preview.prince ul > li ul > li,
+.markdown-preview.markdown-preview.prince ol > li ul > li {
+  font-family: 'Fira Sans Condensed Light Italic', 'Emoji REY', monospace;
+  font-size: 90%;
+}
+.markdown-preview.markdown-preview.prince pre {
+  max-width: 100%;
+  /* Prevent overflow */
+}
+.markdown-preview.markdown-preview.prince img {
+  max-width: 104%;
+  width: - 104%;
+  margin-left: -2%;
+  display: flex;
+}
+.markdown-preview.markdown-preview.prince pre {
+  line-height: 110%;
+}
+.markdown-preview.markdown-preview.prince pre > code {
+  font-size: 11px;
+  white-space: pre-wrap;
+  /* Enable word wrap */
+  word-wrap: break-word;
+  /* Break words that exceed the width */
+  word-break: normal;
+  overflow-wrap: break-word;
+  /* Prevent overflow */
+}
+/**
+MarkDown File Top part:-
+---
+id: "amVK_Docs"
+class: "DocumentClass1"
+---
+*/
+.REY_Class1 {
+  /**
+        font-size: 15px !important;
+        font-family: 'Neuton', 'CMU Serif', 'Quivira', 'Bahnschrift Light Condensed' !important;
+        font-weight: 200 !important;
+        line-height: 17px;
+    */
+  /**
+        font-size: 15px !important;
+        font-family: 'Quartist', 'Neuton', 'CMU Serif', 'Quivira', 'Bahnschrift Light Condensed' !important;
+        font-weight: 100 !important;
+        line-height: 17px;
+        color: black !important;
+
+        strong {
+            font-family: 'Neuton Bold' !important;
+        }
+    */
+  /**
+        font-size: 14px !important;
+        font-family: 'CMU Serif', 'Quivira', 'Bahnschrift Light Condensed' !important;
+        font-weight: 100 !important;
+        line-height: 16px;
+        color: black !important;
+
+        strong {
+            font-size: 13px !important;
+            font-family: 'AudioLink Mono' !important;
+            font-weight: 700 !important;
+
+            background-color: #f0f0f0;
+            border-radius: 3px;
+            padding: .075em .3em;
+        }
+    */
+}
+.REY_Class1.prince {
+  font-size: 15px !important;
+  font-family: 'Neuton', 'CMU Serif', 'Quivira', 'Bahnschrift Light Condensed' !important;
+  font-weight: 200 !important;
+  line-height: 17px;
+}
+.REY_Class1.prince h1,
+.REY_Class1.prince h2,
+.REY_Class1.prince h3,
+.REY_Class1.prince h4,
+.REY_Class1.prince h5,
+.REY_Class1.prince h6 {
+  font-family: 'Quartist' !important;
+}
+.REY_Class1.prince h1,
+.REY_Class1.prince h2 {
+  margin-bottom: 0px;
+}
+.REY_Class1.prince h1 {
+  margin-top: 20px;
+}
+.REY_Class1.prince h2 {
+  margin-top: 20px;
+}
+/**
+@page { 
+    size: A4;
+
+    margin-top: 1cm;
+    margin-bottom: 1cm;
+    margin-outside: 1.5cm;
+    margin-inside: 1.5cm;
+
+    prince-image-resolution: 300dpi;
+
+    @bottom-center {
+        content: counter(page);
+        margin: 0;
+        margin-top: -1.3cm;
+        padding: 0;
+    }
+}
+*/
+@page {
+  size: A4;
+  margin-top: 1cm;
+  margin-bottom: -0.3cm;
+  margin-outside: 1cm;
+  margin-inside: 1cm;
+  prince-image-resolution: 300dpi;
+  @bottom-center {
+    content: counter(page);
+    margin: 0;
+    margin-top: -1.3cm;
+    padding: 0;
+  }
+}
+/**
+    https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css?id=local-style
+*/
+/** I think this part means like.... Specific to only when CREATING THE PDF. But not like specific to PRINCE-XML */
+@media print {
+  color: black !important;
+}
+/** I think this part means like.... Specific to only when CREATING THE PDF. But yes like specific to PRINCE-XML */
+.prince {
+  color: black !important;
+}
+
+      </style>
+      <!-- The content below will be included at the end of the <head> element. --><script type="text/javascript">
+  document.addEventListener("DOMContentLoaded", function () {
+    // your code here
+  });
+</script></head><body for="html-export">
+    
+    
+      <div class="crossnote markdown-preview  REY_Class1">
+      
+<img src="./CH2.1.vkHelloWindow.png" alt="drawing" width="600px" class="makeSmaller">
+<br>
+<h1 id="2---gui-applications">2 - GUI applications </h1>
+<p>In order to develop graphics applications, it is necessary to create a window for rendering. However, before proceeding, it is required to have a basic understanding of how applications with a graphical user interface (GUI) operate on both Windows and Linux.</p>
+<br>
+<h2 id="21---windows-applications">2.1 - Windows applications </h2>
+<p>The content of this section has been heavily inspired by "Programming Microsoft Visual C++, Fifth Edition" by David J. Kruglinski, George Shepherd and Scott Wingo.</p>
+<br>
+<img src="./../images/01/A/win-apps.png" alt="drawing" width="300px" class="makeSmaller">
+<br>
+<p>Windows applications use an event-driven programming model (illustrated in the following image) in which programs respond to events by processing messages sent by the operating system. In this context, an event is a keystroke, a mouse click, or a command for a window to repaint itself. The entry point of a Windows application is a function called WinMain, but most of the action takes place in a function known as the window procedure. The window procedure processes messages sent by the OS to the application a window belongs to. WinMain creates that window and then enters a message loop, retrieving messages and dispatching them to the window procedure. Messages wait in a message queue until they are retrieved. The main occupation of a Windows application is to respond to the messages it receives, and in between messages, it does little except wait for the next message to arrive. You exit the message loop when a WM_QUIT message is retrieved from the message queue, signaling that the application is about to end. This message is sent by the OS when the user closes the window. When the message loop ends, WinMain returns, and the application terminates.</p>
+<br>
+<p>Observe that window messages can also be directly sent to a window procedure, bypassing the message queue. If the sending thread is sending a message to a window created by the same thread, the specified window’s window procedure is called. However, if a thread is sending a message to a window created by another thread, things become more complicated. Fortunately, we don’t need to know the low-level details right now.</p>
+<h3 id="211---window-procedure">2.1.1 - Window Procedure </h3>
+<p>As stated earlier, a window procedure is a function that receives and processes messages sent by the OS to the application a window belongs to. A window class defines important characteristics of a window such as its window procedure address, its default background color, and its icon. Every window created with a particular class will use that same window procedure to respond to messages.</p>
+<br>
+<p>When the application dispatches a message to a window procedure, it also passes additional information on the message as arguments in its input parameters. That way, the window procedure can perform an appropriate action for a message by consuming the related message data. If a window procedure does not process a message, it must send the message back to the system for default processing by calling the DefWindowProc function, which performs a default action and returns a message result. The window procedure must then return this value as its own message result. <br><br>
+Since a window procedure is shared by all windows belonging to the same class, it can process messages for different windows. To identify the specific window a message is addressed to, a window procedure can examine the window handle passed as input parameter. The code provided in the window procedure to process a particular message is known as message handler.</p>
+<br>
+<h3 id="212---messages">2.1.2 - Messages </h3>
+<p>Windows defines many different message types. Usually, messages have names that begin with the letters “<strong>WM_</strong>”, as in <strong>WM_CREATE</strong> and <strong>WM_PAINT</strong>. The following table shows ten of the most common messages. For example, a window receives a <strong>WM_PAINT</strong> message when its interior needs repainting. You can think of a Windows program as a collection of message handlers.</p>
+<br>
+<table>
+<thead>
+<tr>
+<th>Message</th>
+<th>Sent when</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>WM_CHAR       </code></td>
+<td>A character is input from the keyboard.</td>
+</tr>
+<tr>
+<td><code>WM_COMMAND    </code></td>
+<td>The user selects a menu item, or a control sends a notification to its parent.</td>
+</tr>
+<tr>
+<td><code>WM_CREATE     </code></td>
+<td>A window is created.</td>
+</tr>
+<tr>
+<td><code>WM_DESTROY    </code></td>
+<td>A window is destroyed.</td>
+</tr>
+<tr>
+<td><code>WM_LBUTTONDOWN</code></td>
+<td>The left mouse button is pressed.</td>
+</tr>
+<tr>
+<td><code>WM_LBUTTONUP  </code></td>
+<td>The left mouse button is released.</td>
+</tr>
+<tr>
+<td><code>WM_MOUSEMOVE  </code></td>
+<td>The mouse pointer is moved.</td>
+</tr>
+<tr>
+<td><code>WM_PAINT      </code></td>
+<td>A window needs repainting.</td>
+</tr>
+<tr>
+<td><code>WM_QUIT       </code></td>
+<td>The application is about to terminate.</td>
+</tr>
+<tr>
+<td><code>WM_SIZE       </code></td>
+<td>A window is resized.</td>
+</tr>
+</tbody>
+</table>
+<br>
+<p>When the message loop dispatches a message, the window procedure is called, and you can retrieve the information on the message from its four input parameters:</p>
+<br>
+<ul>
+<li>
+<p>The handle of the window to which the message is directed,</p>
+</li>
+<li>
+<p>A message ID, and</p>
+</li>
+<li>
+<p>Two 32-bit parameters known as <strong>wParam</strong> and <strong>lParam</strong>.</p>
+</li>
+</ul>
+<br>
+<p>The window handle is a 32-bit value that uniquely identifies a window. Internally, the value references a data structure in which the OS stores relevant information about the window such as its size, style, and location on the screen.<br><br>
+The message ID is a numeric value that identifies the message type: <strong>WM_CREATE</strong>, <strong>WM_PAINT</strong>, and so on.<br><br>
+<strong>wParam</strong> and <strong>lParam</strong> contain information specific to the message type. For example, when a <strong>WM_LBUTTONDOWN</strong> message arrives, <strong>wParam</strong> holds a series of bit flags identifying the state of the <kbd>Ctrl</kbd> and <kbd>Shift</kbd> keys and of the mouse buttons. <strong>lParam</strong> holds two 16-bit values identifying the location of the mouse pointer (in screen coordinates) when the click occurred. At that point, you have all you need to know to process the <strong>WM_LBUTTONDOWN</strong> message in the window procedure. Conventionally, <strong>WinMain</strong> should return the value stored in the <kbd>wParam</kbd> of the <strong>WM_QUIT</strong> message.</p>
+<p>The only criticism to the above explanation is that a graphics application performs the bulk of its processing exactly in between messages. Although, the sample we will examine in this tutorial is an exception as its only purpose is to show a window on the screen (i.e., no relevant graphics operations are involved).</p>
+<br>
+<h3 id="213---how-to-create-a-window">2.1.3 - How to create a window </h3>
+<p>The following listing demonstrates how to create and show a window on the screen.</p>
+<br>
+<pre data-role="codeBlock" data-info="cpp" class="language-cpp cpp"><code><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;windows.h&gt;</span></span>
+
+<span class="token keyword keyword-int">int</span> WINAPI <span class="token function">WinMain</span><span class="token punctuation">(</span>HINSTANCE hInstance<span class="token punctuation">,</span> HINSTANCE<span class="token punctuation">,</span> <span class="token keyword keyword-char">char</span><span class="token operator">*</span><span class="token punctuation">,</span> <span class="token keyword keyword-int">int</span> nCmdShow<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    ApplicationClass<span class="token operator">*</span> <span class="token function">pApp</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword keyword-uint32_t">uint32_t</span> width <span class="token operator">=</span> <span class="token number">1280</span><span class="token punctuation">;</span>
+    <span class="token keyword keyword-uint32_t">uint32_t</span> height <span class="token operator">=</span> <span class="token number">1280</span><span class="token punctuation">;</span>
+
+    WNDCLASSEX windowClass <span class="token operator">=</span> <span class="token punctuation">{</span> <span class="token number">0</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>     <span class="token comment">// A WindowClass is needed</span>
+        windowClass<span class="token punctuation">.</span>cbSize <span class="token operator">=</span> <span class="token keyword keyword-sizeof">sizeof</span><span class="token punctuation">(</span>WNDCLASSEX<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        windowClass<span class="token punctuation">.</span>style <span class="token operator">=</span> CS_HREDRAW <span class="token operator">|</span> CS_VREDRAW<span class="token punctuation">;</span>
+        windowClass<span class="token punctuation">.</span>lpfnWndProc <span class="token operator">=</span> WindowProc<span class="token punctuation">;</span>
+        windowClass<span class="token punctuation">.</span>hInstance <span class="token operator">=</span> <span class="token punctuation">(</span>HINSTANCE<span class="token punctuation">)</span>hInstance<span class="token punctuation">;</span>
+        windowClass<span class="token punctuation">.</span>hCursor <span class="token operator">=</span> <span class="token double-colon punctuation">::</span><span class="token function">LoadCursor</span><span class="token punctuation">(</span><span class="token constant">NULL</span><span class="token punctuation">,</span> IDC_ARROW<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        windowClass<span class="token punctuation">.</span>lpszClassName <span class="token operator">=</span> <span class="token string">"ClassName"</span><span class="token punctuation">;</span>
+    <span class="token double-colon punctuation">::</span><span class="token function">RegisterClassEx</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>windowClass<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    RECT windowRect <span class="token operator">=</span> <span class="token punctuation">{</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> width<span class="token punctuation">,</span> height <span class="token punctuation">}</span><span class="token punctuation">;</span>
+    <span class="token double-colon punctuation">::</span><span class="token function">AdjustWindowRect</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>windowRect<span class="token punctuation">,</span> WS_OVERLAPPEDWINDOW<span class="token punctuation">,</span> FALSE<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    winParams<span class="token punctuation">.</span>hWindow <span class="token operator">=</span> <span class="token double-colon punctuation">::</span><span class="token function">CreateWindow</span><span class="token punctuation">(</span> <span class="token comment">// Create the window and store a handle to it.</span>
+        windowClass<span class="token punctuation">.</span>lpszClassName<span class="token punctuation">,</span>
+        <span class="token string">"Window name"</span><span class="token punctuation">,</span>
+        WS_OVERLAPPEDWINDOW<span class="token punctuation">,</span>
+        CW_USEDEFAULT<span class="token punctuation">,</span>
+        CW_USEDEFAULT<span class="token punctuation">,</span>
+        windowRect<span class="token punctuation">.</span>right <span class="token operator">-</span> windowRect<span class="token punctuation">.</span>left<span class="token punctuation">,</span>
+        windowRect<span class="token punctuation">.</span>bottom <span class="token operator">-</span> windowRect<span class="token punctuation">.</span>top<span class="token punctuation">,</span>
+        <span class="token keyword keyword-nullptr">nullptr</span><span class="token punctuation">,</span>        <span class="token comment">// We have no parent window.</span>
+        <span class="token keyword keyword-nullptr">nullptr</span><span class="token punctuation">,</span>        <span class="token comment">// We aren't using menus.</span>
+        <span class="token punctuation">(</span>HINSTANCE<span class="token punctuation">)</span>hInstance<span class="token punctuation">,</span>
+        pApp<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token function">ShowWindow</span><span class="token punctuation">(</span>winParams<span class="token punctuation">.</span>hWindow<span class="token punctuation">,</span> nCmdShow<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword keyword-return">return</span>  <span class="token class-name">ApplicationClass</span><span class="token double-colon punctuation">::</span><span class="token function">MessageLoop</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>     <span class="token comment">// Enter the message loop</span>
+<span class="token punctuation">}</span>
+</code></pre><br>
+<p>To create a window, we first need an instance of a window class (structure <code>WNDCLASSEX</code>) to specify some basic information about all the windows created using that instance. Below is a list of the most important fields of <code>WNDCLASSEX</code>.</p>
+<ul>
+<li>
+<p><code>style</code>:- specifies some additional information about the window. <code>CS_HREDRAW | CS_VREDRAW</code> indicates to redraw the entire window if a size adjustment changes the width and\or height of the client area.<br>
+<br></p>
+</li>
+<li>
+<p><code>hCursor</code>:- specifies the cursor showed when this is over the window’s client area.<br>
+<br></p>
+</li>
+<li>
+<p><code>hInstance</code>:- specifies the application a window belongs to. This information is passed as an argument to the first parameter of <code>WinMain</code>.<br>
+<br></p>
+</li>
+<li>
+<p><code>lpszClassName</code>:- specifies the name we want to give to the window class.<br>
+<br></p>
+</li>
+<li>
+<p><code>lpfnWndProc</code>:- specifies the address of the window procedure.<br>
+<br></p>
+</li>
+<li>
+<p><code>RegisterClassEx</code>:- registers the window class so that we can use an instance of this class to create one or more windows with a specific style, window procedure, etc.<br>
+<br></p>
+</li>
+<li>
+<p><code>CreateWindow</code>:- as the name suggests, creates a window and returns its handle. It takes the name of a window class and some additional information. In particular, it needs the size of the entire window, so we must calculate it because in graphics application we tipically set the size of the window's client area where we want to draw rather than the size of the whole window area. The client area of a window is where we are allowed to draw.<br>
+<br></p>
+</li>
+</ul>
+<p><img src="./../images/01/A/win-client-area.png" alt="Image"></p>
+<br>
+<p><code>AdjustWindowRect</code> returns such information if you pass the size of the client area and the style of the window you’re going to create with <code>CreateWindow</code>. <code>WS_OVERLAPPEDWINDOW</code> specifies a window with a title bar and no menu.</p>
+<p>With the last parameter of <code>CreateWindow</code> we can specify a pointer the OS will return to us in response to a <code>WM_CREATE</code> message (sent by the OS to an application as soon as a window is created; that is, when <code>CreateWindow</code> returns). We will use this last parameter to save an instance of the application class with the purpose to access it later. The following listing shows an example of a window procedure.</p>
+<br>
+<pre data-role="codeBlock" data-info="cpp" class="language-cpp cpp"><code><span class="token comment">// Main message handler for the application.</span>
+LRESULT CALLBACK <span class="token function">WindowProc</span><span class="token punctuation">(</span>HWND hWnd<span class="token punctuation">,</span> UINT message<span class="token punctuation">,</span> WPARAM wParam<span class="token punctuation">,</span> LPARAM lParam<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    ApplicationClass<span class="token operator">*</span> pApp <span class="token operator">=</span> <span class="token generic-function"><span class="token function">reinterpret_cast</span><span class="token generic class-name"><span class="token operator">&lt;</span>ApplicationClass<span class="token operator">*</span><span class="token operator">&gt;</span></span></span><span class="token punctuation">(</span><span class="token function">GetWindowLongPtr</span><span class="token punctuation">(</span>hWnd<span class="token punctuation">,</span> GWLP_USERDATA<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword keyword-switch">switch</span> <span class="token punctuation">(</span>message<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword keyword-case">case</span> WM_CREATE<span class="token operator">:</span> <span class="token punctuation">{</span>
+            <span class="token comment">// Save the ApplicationClass pointer passed in to CreateWindow.</span>
+            LPCREATESTRUCT pCreateStruct <span class="token operator">=</span> <span class="token generic-function"><span class="token function">reinterpret_cast</span><span class="token generic class-name"><span class="token operator">&lt;</span>LPCREATESTRUCT<span class="token operator">&gt;</span></span></span><span class="token punctuation">(</span>lParam<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token function">SetWindowLongPtr</span><span class="token punctuation">(</span>hWnd<span class="token punctuation">,</span> GWLP_USERDATA<span class="token punctuation">,</span> <span class="token generic-function"><span class="token function">reinterpret_cast</span><span class="token generic class-name"><span class="token operator">&lt;</span>LONG_PTR<span class="token operator">&gt;</span></span></span><span class="token punctuation">(</span>pCreateStruct<span class="token operator">-&gt;</span>lpCreateParams<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword keyword-return">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+
+        <span class="token keyword keyword-case">case</span> WM_PAINT<span class="token operator">:</span>
+            <span class="token keyword keyword-if">if</span> <span class="token punctuation">(</span>pApp <span class="token operator">&amp;&amp;</span> pApp<span class="token operator">-&gt;</span><span class="token function">IsInitialized</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                pApp<span class="token operator">-&gt;</span><span class="token function">OnUpdate</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                pApp<span class="token operator">-&gt;</span><span class="token function">OnRender</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            <span class="token keyword keyword-return">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+
+        <span class="token keyword keyword-case">case</span> WM_KEYDOWN<span class="token operator">:</span>
+            <span class="token keyword keyword-switch">switch</span> <span class="token punctuation">(</span>wParam<span class="token punctuation">)</span>  <span class="token punctuation">{</span>
+                <span class="token keyword keyword-case">case</span> VK_ESCAPE<span class="token operator">:</span>
+                    <span class="token function">PostQuitMessage</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token keyword keyword-break">break</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            <span class="token keyword keyword-if">if</span> <span class="token punctuation">(</span>pApp<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                pApp<span class="token operator">-&gt;</span><span class="token function">OnKeyDown</span><span class="token punctuation">(</span><span class="token generic-function"><span class="token function">static_cast</span><span class="token generic class-name"><span class="token operator">&lt;</span>UINT8<span class="token operator">&gt;</span></span></span><span class="token punctuation">(</span>wParam<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            <span class="token keyword keyword-return">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+
+        <span class="token keyword keyword-case">case</span> WM_KEYUP<span class="token operator">:</span>
+            <span class="token keyword keyword-if">if</span> <span class="token punctuation">(</span>pApp<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                pApp<span class="token operator">-&gt;</span><span class="token function">OnKeyUp</span><span class="token punctuation">(</span><span class="token generic-function"><span class="token function">static_cast</span><span class="token generic class-name"><span class="token operator">&lt;</span>UINT8<span class="token operator">&gt;</span></span></span><span class="token punctuation">(</span>wParam<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            <span class="token keyword keyword-return">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+
+        <span class="token keyword keyword-case">case</span> WM_DESTROY<span class="token operator">:</span>
+            <span class="token function">PostQuitMessage</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword keyword-return">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">// Handle any messages the switch statement didn't.</span>
+    <span class="token keyword keyword-return">return</span> <span class="token function">DefWindowProc</span><span class="token punctuation">(</span>hWnd<span class="token punctuation">,</span> message<span class="token punctuation">,</span> wParam<span class="token punctuation">,</span> lParam<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre><br>
+<p>Before returning, <strong>CreateWindow</strong> sends a <strong>WM_CREATE</strong> message to the window procedure. In the <strong>WM_CREATE</strong> message handler, <strong>lParam</strong> is a pointer to <strong>CREATESTRUCT</strong>. The <strong>lpCreateParams</strong> field of this structure contains the last parameter passed to <strong>CreateWindow</strong>. This means we can call <strong>SetWindowLongPtr</strong> to save the instance of the application class in the user data associated with the window (an extra memory space reserved to the user), and retrieve it with <strong>GetWindowLongPtr</strong> later.</p>
+<p>A <strong>WM_DESTROY</strong> is sent to the window procedure of the window being destroyed after the user closes it. The <strong>WM_DESTROY</strong> message handler calls <strong>PostQuitMessage</strong>, which queues a <strong>WM_QUIT</strong> message. That way, we can exit the message loop (more on this shortly).</p>
+<p>Generally, <strong>WM_PAINT</strong> messages are both sent to the window procedure, and posted to the message queue throughout the application’s lifetime. That way, we can use the <strong>WM_PAINT</strong> message handler for updating and rendering purposes.</p>
+<br>
+<p>At the end of <strong>WinMain</strong> we call <strong>MessageLoop</strong>, and the application enters a message loop where <strong>PeekMessage</strong> retrieves a message from the message queue, and save the related information in the <strong>MSG</strong> structure passed in the first parameter before returning <strong>TRUE</strong> (otherwise it returns <strong>FALSE</strong> to indicate no message were available). <strong>DispatchMessage</strong> dispatches a message to the window procedure. <strong>TranslateMessage</strong> translates virtual-key messages (<strong>WM_KEYDOWN</strong>, <strong>WM_KEYUP</strong>) into character messages (<strong>WM_CHAR</strong>) containing ASCII characters. That way you can better distinguish the various keys of the keyboard.</p>
+<br>
+<pre data-role="codeBlock" data-info="cpp" class="language-cpp cpp"><code><span class="token keyword keyword-int">int</span> <span class="token class-name">ApplicationClass</span><span class="token double-colon punctuation">::</span><span class="token function">MessageLoop</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    MSG msg<span class="token punctuation">;</span>
+    <span class="token keyword keyword-bool">bool</span> quitMessageReceived <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+    <span class="token keyword keyword-while">while</span> <span class="token punctuation">(</span><span class="token operator">!</span>quitMessageReceived<span class="token punctuation">)</span> 
+    <span class="token punctuation">{</span>
+        <span class="token keyword keyword-if">if</span> <span class="token punctuation">(</span><span class="token double-colon punctuation">::</span><span class="token function">PeekMessage</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>msg<span class="token punctuation">,</span> <span class="token constant">NULL</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> PM_REMOVE<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token double-colon punctuation">::</span><span class="token function">TranslateMessage</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>msg<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token double-colon punctuation">::</span><span class="token function">DispatchMessage</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>msg<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword keyword-if">if</span> <span class="token punctuation">(</span>msg<span class="token punctuation">.</span>message <span class="token operator">==</span> WM_QUIT<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                quitMessageReceived <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+                <span class="token keyword keyword-break">break</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">// Return this part of the WM_QUIT message to Windows.</span>
+    <span class="token keyword keyword-return">return</span> <span class="token generic-function"><span class="token function">static_cast</span><span class="token generic class-name"><span class="token operator">&lt;</span><span class="token keyword keyword-char">char</span><span class="token operator">&gt;</span></span></span><span class="token punctuation">(</span>msg<span class="token punctuation">.</span>wParam<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre><div style="page-break-after: always;"></div>
+<h2 id="22---linux-applications">2.2 - Linux applications </h2>
+<p>The content of this section has been heavily inspired by "Xlib Programming Manual, for version 11" by Adrian Nye, as well as additional information gathered from Wikipedia and other online resources.</p>
+<p>On linux we have different kernel versions, display servers, windows managers, communication protocols, and protocol client libraries. In this section, I will just explain the necessary requirements for creating a window using the Xlib library, which is easier and cleaner to use for our purposes (while I am aware that Xlib has some limitations and drawbacks, they are not significant within the scope of this tutorial series, which is solely intended to provide guidance on programming with the Vulkan API).</p>
+<h3 id="221---x-window-system">2.2.1 - X Window System </h3>
+<p>The X Window System (X11, or simply X) is a windowing system based on a client-server model that provides basic GUI support for creating and moving windows on the display device, and interacting with a mouse and keyboard. It also supports basic drawing of graphical primitives. This model has a main X server providing a display service that clients can interact with, even over a network. This means the server and its clients need to communicate via a network-transparent protocol. For this purpose, the X protocol makes the network transparent, so that the server and its clients may run on the same machine or different ones (including across various architectures and operating systems).</p>
+<br>
+  <img src="./../images/01/A/x11.png" alt="drawing" width="300px" class="makeSmaller">
+<p>The X Window System mainly defines a protocol (called X protocol) and some graphics primitives. It contains no specification for application user-interface design, such as button, menu, or window title-bar styles. Rather, the responsibility of defining and supplying these details falls on application software such as window managers, GUI widget toolkits and desktop environments, or application-specific graphical user interfaces. As a result, there is no typical X interface, and several different desktop environments have become popular among users.</p>
+<p>The X Window System uses certain terms in a specific manner that sometimes can diverge from their common usage - particularly "display" and "screen". The following is a subset of the common used terms, presented for convenience:</p>
+<p><strong>device</strong>: A graphics device such as a computer graphics card or a computer motherboard's integrated graphics chipset.</p>
+<p><strong>monitor</strong>: A physical device such as a CRT or a flat screen computer display.</p>
+<p><strong>screen</strong>: An area into which graphics may be rendered, either into system memory or within a graphics device.</p>
+<p><strong>display</strong>: A collection of screens, even involving multiple monitors, generally configured to allow the mouse to move the pointer to any position within them.</p>
+<h3 id="222---xlib">2.2.2 - Xlib </h3>
+<p>Xlib (also known as libX11) is an X Window System protocol client library written in C language. It contains functions for interacting with an X server. These functions allow programmers to write applications without knowing the details of the X protocol: Xlib calls are automatically translated to X protocol requests sent to the server.</p>
+<br>
+<div align="center">
+<img src="./../images/01/A/xlib.png" alt="drawing" width="600px" class="makeSmall">
+</div>
+<br>
+<blockquote>
+<p>In the context of the X Window System, a window manager is a special type of X client that controls the placement and appearance of windows to help provide them a desktop environment. It typically decorate the windows with a title bar and various tools for iconifying and resizing applications. Much of the communication between clients and the window manager (and vice versa) occurs through properties (the rest occurring through events). Many of the properties are known as hints because they may not necessarily be honored by the window manager.</p>
+</blockquote>
+<br>
+<p>The Xlib functions that send requests to the server, typically do not immediately do it. Instead, they store the requests in a buffer referred to as the request buffer. The request buffer may contain a variety of requests to the server, not only those that have a visible effect on the screen. The request buffer is guaranteed to be flushed (which means that all pending requests are transmitted to the server) after a call to either the <strong>XSync</strong> or <strong>XFlush</strong> functions, after a function call that returns a value from the server (these functions block until a response is received), or under certain conditions.</p>
+<p>For each application, the X server provides a queue where it stores events that are generated for any of the application's windows. These events are dispatched by the X server asynchronously in the appropriate queue. Events include user input (key press, mouse click and movements over a window, or window resizing) as well as interaction with other programs (for example, if an obscured portion of a window is exposed when another overlapping window is moved, closed, or resized, the client must redraw it). <br><br>
+Client applications can inspect and retrieve events from the event queue by calling specific Xlib functions. Some of these functions may block, in which case they also flush the request buffer. Errors are instead received and treated asynchronously: applications can provide an error handler that will be called whenever an error message from the server is received.</p>
+<p>The content of a window is not guaranteed to be preserved if the window or part of it is made not visible. If this occurs, the application is sent an <strong>Expose</strong> event when the invisible region of the window is made visible again. The aplication is then supposed to draw the window content again.</p>
+<p>The functions in the Xlib library can be grouped in:</p>
+<ul>
+<li>
+<p>connection operations (<strong>XOpenDisplay</strong>, <strong>XCloseDisplay</strong>, ...)</p>
+</li>
+<li>
+<p>requests to the server, including requests for operations (<strong>XCreateWindow</strong>, <strong>XSetWindowProperty</strong>, ...) and requests for information (<strong>XGetWindowProperty</strong>, ...)</p>
+</li>
+<li>
+<p>operations that are local to the client: operations on the event queue (<strong>XNextEvent</strong>, <strong>XPeekEvent</strong>, ...) and other operations on local data (<strong>XLookupKeysym</strong>, <strong>XParseGeometry</strong>, <strong>XSetRegion</strong>, <strong>XCreateImage</strong>, <strong>XSaveContext</strong>, ...)</p>
+</li>
+</ul>
+<br>
+<p>In Xlib, the primary data types include the 'Display' structure and several identifiers.</p>
+<p>The <strong>Display</strong> structure of the Xlib library not only provides information about the display, but also contains significant details regarding the communication channel between the client and the server. On Unix-like operating systems, this structure includes the file handle of the socket of this channel. Most Xlib functions require a <strong>Display</strong> structure as an argument because they either operate on the channel or are relative to a specific channel. In particular, all Xlib functions that interact with the server need this structure for accessing the channel. Some other functions need this structure, even if they operate locally, as they operate on data relative to a specific channel. Operations of this kind include for example operations on the event queue.</p>
+<p>Windows, colormaps, and other similar objects are managed by the server, which means that the implementation details are all stored in the server. The client can only interact with these objects through their identifiers. It is not possible for the client to directly manipulate an object, but it can request the server to perform operations on the object by specifying its identifier.</p>
+<br>
+<blockquote>
+<p>A colormap is a lookup table used to map pixel values from a frame buffer (a memory buffer containing data representing all the pixels in a complete video frame) to pixel colors at the corresponding location on the screen.</p>
+<br>
+<p><img src="./../images/01/A/colormap.png" alt="Image"></p>
+<br>
+</blockquote>
+<p>The types Windows, Pixmap, Font, Colormap, etc. are all identifiers, which are 32-bit integers. To create a window, a client sends a request to the server via an Xlib function call. The server responds with a unique identifier for the new window. The client can then use this identifier to perform additional operations on the same window, such as resizing or moving it.</p>
+<p>Every window has a predefined set of attributes and a set of properties, all stored in the X server and accessible to the clients via appropriate requests. Attributes are data about the appearance and response of a window, such as its size, position, background color, which event types are received, etc. Properties are pieces of data that are attached to a window.</p>
+<p>You can think of properties as global variables associated with a particular window and made available to all clients running under a server. Properties are used by clients to store information that other clients, including the window manager, might need or want to know. <br><br>
+Properties have a string name and a numerical identifier called atom. An atom is an ID that uniquely identifies a particular property where clients can store arbitrary data, usually to inform the window manager about its preferences. For example, the <strong>WM_NAME</strong> property is used to store the name of a window, which is typically displayed by the window manager at the top of the window. Therefore, a client can use the atom corresponding to <strong>WM_NAME</strong> to set a string that the window manager will read to set the window title. <br><br>
+Property name strings are typically all upper case, with words separated by underscores, such as <strong>WM_COLORMAP_WINDOWS</strong>. Atoms are used to refer to properties in function calls. This avoid the need to send arbitrary-length property name strings over the network, that it's easier and reduce network traffic. An application gets the atom for a property by calling <strong>XInternAtom</strong>. You can specify the string name for a property as an argument to <strong>XInternAtom</strong>, and it returns the atom. From this point on, the application can use the atom to refer to that property. <br><br>
+Some atoms, called predefined atoms, are defined when the server initializes. These atoms are available as symbolic constants starting with <strong>XA_</strong> and can be used directly by applications without the need to call the <strong>XInternAtom</strong> function. <br><br>
+<strong>XSetStandardProperties</strong> and <strong>XSetWMProperties</strong> can be used to give the window manager some information about your window's preferences. In particular, these functions can set some essential window properties that are required for a typical application. For example, the window title (<strong>WM_NAME</strong> property), the icon, and the size hints for the window in its normal state. <br><br>
+The <strong>WM_PROTOCOLS</strong> property is used to enable applications to receive notifications of specific events or conditions. It contains a list of atoms (that is, it is a property that can refer to other properties through its atoms), each identifying a protocol that represent a condition the application want to be notified with a <strong>ClientMessage</strong> event. By registering for a protocol, an application can indicate that it is capable of handling certain events, such as window close or iconify requests, from the window manager. The <strong>xclient</strong> field of the event will contain the atoms for both the <strong>WM_PROTOCOLS</strong> property and one of the properties listed below</p>
+<ul>
+<li><strong>WM_TAKE_FOCUS</strong>: Assignment of keyboard focus.</li>
+<li><strong>WM_SAVE_YOURSELF</strong>: Save client state warning.</li>
+<li><strong>WM_DELETE_WINDOW</strong>: Request to delete top−level window.</li>
+</ul>
+<br>
+<p>The <strong>NET_WM_STATE</strong> property is also a list of atoms, each describing a specific window state although. For example, <strong>NET_WM_STATE_FULLSCREEN</strong> is the property that correspond to an atom included in <strong>NET_WM_STATE</strong> that specify a window in full screen.</p>
+<p>Unlike properties, window attributes are defined in regular structures. In particular, the <strong>XWindowAttributes</strong> and <strong>XSetWindowAttributes</strong> structures include information about about how a window is to look and act. The window attributes defined in <strong>XSetWindowAttributes</strong> can be set by calling <strong>XChangeWindowAttributes</strong>. On the other hand, <strong>XWindowAttributes</strong> is a read-only structure, and to change the window attributes associated to its field we need to using specific Xlib functions. For example, the window position can be set by calling <strong>XMoveWindow</strong> that inform the window manager how to move a top-level window. In the same way, the functions to resize a top-level window are <strong>XMoveWindow</strong>, <strong>XMoveResizeWindow</strong>, and <strong>XResizeWindow</strong>, while the function to change the border width of a window is <strong>XSetWindowBorderWidth</strong>. <br><br>
+However, it is not essential that you set any window attributes other than the window background and border. Therefore, if you need more information, refer to the Xlib documentation.</p>
+<br>
+<blockquote>
+<p>If you want to set the position of a window, remember that you need to distinguish between the coordinate system of the parent window, and the coordinate system of the root window (the screen). Fortunately, <strong>XTranslateCoordinates</strong> allows to translate coordinates in one window to the coordinate space of another window (more on this shortly).</p>
+</blockquote>
+<br>
+<h3 id="223---how-to-create-a-window">2.2.3 - How to create a window </h3>
+<p>The following listing demonstrates how to create and show a window on the screen using the Xlib library.</p>
+<br>
+<pre data-role="codeBlock" data-info="cpp" class="language-cpp cpp"><code><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;X11/Xlib.h&gt;</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;X11/Xutil.h&gt;</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;X11/Xatom.h&gt;</span></span>
+
+Display<span class="token operator">*</span> pDisplay <span class="token operator">=</span> <span class="token keyword keyword-nullptr">nullptr</span><span class="token punctuation">;</span>
+Atom wm_delete_window <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-bool">bool</span> quit <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+
+<span class="token keyword keyword-int">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token keyword keyword-const">const</span> <span class="token keyword keyword-int">int</span> argc<span class="token punctuation">,</span> <span class="token keyword keyword-const">const</span> <span class="token keyword keyword-char">char</span><span class="token operator">*</span> argv<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    ApplicationClass<span class="token operator">*</span> <span class="token function">pApp</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// Size of the client area</span>
+    <span class="token keyword keyword-uint32_t">uint32_t</span> width <span class="token operator">=</span> <span class="token number">1280</span><span class="token punctuation">;</span>
+    <span class="token keyword keyword-uint32_t">uint32_t</span> height <span class="token operator">=</span> <span class="token number">720</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// Check if DISPLAY is set as an environment variable, and stores a valid value.</span>
+    <span class="token keyword keyword-const">const</span> <span class="token keyword keyword-char">char</span> <span class="token operator">*</span>display_envar <span class="token operator">=</span> <span class="token function">getenv</span><span class="token punctuation">(</span><span class="token string">"DISPLAY"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword keyword-if">if</span> <span class="token punctuation">(</span>display_envar <span class="token operator">==</span> <span class="token keyword keyword-nullptr">nullptr</span> <span class="token operator">||</span> display_envar<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token char">'\0'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"Environment variable DISPLAY requires a valid value.\nExiting ...\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">fflush</span><span class="token punctuation">(</span><span class="token constant">stdout</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">exit</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">// Open a connection to the X server</span>
+    pDisplay <span class="token operator">=</span> <span class="token function">XOpenDisplay</span><span class="token punctuation">(</span><span class="token keyword keyword-nullptr">nullptr</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// Create the window</span>
+    <span class="token keyword keyword-unsigned">unsigned</span> <span class="token keyword keyword-long">long</span> white <span class="token operator">=</span> <span class="token function">WhitePixel</span><span class="token punctuation">(</span>pDisplay<span class="token punctuation">,</span> <span class="token function">DefaultScreen</span><span class="token punctuation">(</span>pDisplay<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    Window win <span class="token operator">=</span> <span class="token function">XCreateSimpleWindow</span><span class="token punctuation">(</span>pDisplay<span class="token punctuation">,</span> <span class="token function">DefaultRootWindow</span><span class="token punctuation">(</span>pDisplay<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> width<span class="token punctuation">,</span> height<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> white<span class="token punctuation">,</span> white<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// Set the event types the window wants to be notified by the X Server.</span>
+    <span class="token function">XSelectInput</span><span class="token punctuation">(</span>pDisplay<span class="token punctuation">,</span> win<span class="token punctuation">,</span> KeyPressMask <span class="token operator">|</span> KeyReleaseMask<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// Also request to be notified when the window is deleted.</span>
+    Atom wm_protocols <span class="token operator">=</span> <span class="token function">XInternAtom</span><span class="token punctuation">(</span>pDisplay<span class="token punctuation">,</span> <span class="token string">"WM_PROTOCOLS"</span><span class="token punctuation">,</span> <span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    wm_delete_window <span class="token operator">=</span> <span class="token function">XInternAtom</span><span class="token punctuation">(</span>pDisplay<span class="token punctuation">,</span> <span class="token string">"WM_DELETE_WINDOW"</span><span class="token punctuation">,</span> <span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token function">XSetWMProtocols</span><span class="token punctuation">(</span>pDisplay<span class="token punctuation">,</span> win<span class="token punctuation">,</span> <span class="token operator">&amp;</span>wm_delete_window<span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// Set window and icon names</span>
+    <span class="token function">XSetStandardProperties</span><span class="token punctuation">(</span>pDisplay<span class="token punctuation">,</span> win<span class="token punctuation">,</span> <span class="token string">"Window name"</span><span class="token punctuation">,</span> <span class="token string">"Icon name"</span><span class="token punctuation">,</span> None<span class="token punctuation">,</span> <span class="token keyword keyword-nullptr">nullptr</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token keyword keyword-nullptr">nullptr</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// Setup the Size Hints with the minimum window size.</span>
+    XSizeHints sizehints<span class="token punctuation">;</span>
+    sizehints<span class="token punctuation">.</span>flags <span class="token operator">=</span> PMinSize<span class="token punctuation">;</span>
+    sizehints<span class="token punctuation">.</span>min_width <span class="token operator">=</span> <span class="token number">640</span><span class="token punctuation">;</span>
+    sizehints<span class="token punctuation">.</span>min_height <span class="token operator">=</span> <span class="token number">360</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// Tell the Window Manager our hints about the minimum window size.</span>
+    <span class="token function">XSetWMSizeHints</span><span class="token punctuation">(</span>pDisplay<span class="token punctuation">,</span> win<span class="token punctuation">,</span>  <span class="token operator">&amp;</span>sizehints<span class="token punctuation">,</span> XA_WM_NORMAL_HINTS<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// Request to display the window on the screen, and flush the request buffer.</span>
+    <span class="token function">XMapWindow</span><span class="token punctuation">(</span>pDisplay<span class="token punctuation">,</span> win<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">XFlush</span><span class="token punctuation">(</span>pDisplay<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// Enter the event loop</span>
+    <span class="token keyword keyword-return">return</span> <span class="token class-name">ApplicationClass</span><span class="token double-colon punctuation">::</span><span class="token function">EventLoop</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre><br>
+<p><strong>XOpenDisplay</strong> connect the client to the X server through the channel contained in the <strong>Display</strong> structure. <strong>XOpenDisplay</strong> takes the display name as its first parameter, but you can also pass <strong>nullptr</strong> so that it defaults to the value of the <strong>DISPLAY</strong> environment variable. That's why we check if <strong>DISPLAY</strong> is set as an environment variable, and stores a valid value.</p>
+<p><strong>XCreateSimpleWindow</strong> creates an unmapped child window for a specified parent window, returns the window ID of the created window, and causes the X server to generate a <strong>CreateNotify</strong> event. <strong>DefaultRootWindow</strong> returns the root window (which fills the entire screen) of the default screen for the display passed as a parameter. The position coordinates are expressed relative to the parent window (in this case, the root window). <strong>WhitePixel</strong> returns the pixel value that maps to white using the default colormap for the specified screen: we use this value as the background and borded colors of the window.</p>
+<br>
+<blockquote>
+<p>Almost certainly the window manager will ignore the position coordinates passed to <strong>XCreateSimpleWindow</strong>. Therefore, if you need to create a window at a specific position, first you must translate the <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><mn>0</mn><mo separator="true">,</mo><mn>0</mn><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">(0,0)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord">0</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">0</span><span class="mclose">)</span></span></span></span> position of the window (passed as a parameter to <strong>XCreateSimpleWindow</strong>) to a screen position by calling <strong>XTranslateCoordinates</strong>. At that point, you can call <strong>XMoveWindow</strong> to specify a new location for the window.</p>
+</blockquote>
+<br>
+<p><strong>XSelectInput</strong> sets the types of events the window wants to be notified by the X Server. In this case, we are interested in key press and release. We are also interested in being notified with a <strong>ClientMessage</strong> event when the window is closed. That's why we use <strong>XSetWMProtocols</strong> to set the <strong>WM_DELETE_WINDOW</strong> property through the array of atoms included in <strong>WM_PROTOCOLS</strong>.</p>
+<p>The window name displayed in the title bar can be set by calling <strong>XSetStandardProperties</strong>, which also sets the string displayed when the client is iconified.</p>
+<p><strong>XSetWMSizeHints</strong> tells the window manager our hints about the look of a window. In this case we want to set a minimum size for our window, which means we need to set the <strong>WM_NORMAL_HINTS</strong> property, that maps to a <strong>XSizeHints</strong> structure. The <strong>flags</strong> field of this structure specifies the fields in the structure we are going to set.</p>
+<p><strong>XMapWindow</strong> maps the window. That is, it requests to display the window on the screen. <strong>XFlush</strong> flushes the request buffer.</p>
+<br>
+<p>At the end of the <strong>main</strong> function we call <strong>EventLoop</strong>, which enters the event loop.</p>
+<pre data-role="codeBlock" data-info="cpp" class="language-cpp cpp"><code><span class="token keyword keyword-int">int</span> <span class="token class-name">ApplicationClass</span><span class="token double-colon punctuation">::</span><span class="token function">EventLoop</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token comment">// Event loop</span>
+
+    <span class="token keyword keyword-while">while</span> <span class="token punctuation">(</span><span class="token operator">!</span>quit<span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        XEvent event<span class="token punctuation">;</span>
+        <span class="token keyword keyword-while">while</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token function">XPending</span><span class="token punctuation">(</span>pDisplay<span class="token punctuation">)</span> <span class="token operator">&gt;</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token function">XNextEvent</span><span class="token punctuation">(</span>pDisplay<span class="token punctuation">,</span> <span class="token operator">&amp;</span>event<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token function">HandleX11Event</span><span class="token punctuation">(</span>event<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token keyword keyword-if">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>quit <span class="token operator">&amp;&amp;</span> <span class="token function">IsInitialized</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token function">OnUpdate</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token function">OnRender</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword keyword-return">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre><br>
+<p>The application will continue to process events from the event queue as long as there are events pending. Once the event queue is empty, the application can perform updating and rendering operations.</p>
+<p><strong>XPending</strong> returns the number of events that have been received from the X server but have not been removed from the event queue. This means that when the event queue is empty, the application can move on to other tasks, such as updating an animation and rendering a new frame on the screen.</p>
+<p><strong>XNextEvent</strong> copies the first event from the event queue into the specified <strong>XEvent</strong> structure and then removes it from the queue. If the event queue is empty, <strong>XNextEvent</strong> flushes the request buffer and blocks until an event is received.</p>
+<br>
+<p><strong>HandleX11Event</strong> is our event handler.</p>
+<pre data-role="codeBlock" data-info="cpp" class="language-cpp cpp"><code><span class="token keyword keyword-void">void</span> <span class="token function">HandleX11Event</span><span class="token punctuation">(</span>XEvent<span class="token operator">&amp;</span> event<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    ApplicationClass<span class="token operator">*</span> pApp <span class="token operator">=</span> <span class="token class-name">VKApplication</span><span class="token double-colon punctuation">::</span><span class="token function">GetApplication</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword keyword-switch">switch</span> <span class="token punctuation">(</span>event<span class="token punctuation">.</span>type<span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword keyword-case">case</span> ClientMessage<span class="token operator">:</span>
+            <span class="token keyword keyword-if">if</span> <span class="token punctuation">(</span><span class="token punctuation">(</span>Atom<span class="token punctuation">)</span>event<span class="token punctuation">.</span>xclient<span class="token punctuation">.</span>data<span class="token punctuation">.</span>l<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">==</span> wm_delete_window<span class="token punctuation">)</span> 
+            <span class="token punctuation">{</span>
+                quit <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            <span class="token keyword keyword-break">break</span><span class="token punctuation">;</span>
+
+        <span class="token keyword keyword-case">case</span> KeyPress<span class="token operator">:</span>
+        <span class="token punctuation">{</span>
+            <span class="token keyword keyword-switch">switch</span> <span class="token punctuation">(</span>event<span class="token punctuation">.</span>xkey<span class="token punctuation">.</span>keycode<span class="token punctuation">)</span>
+            <span class="token punctuation">{</span>
+                <span class="token keyword keyword-case">case</span> <span class="token number">0x9</span><span class="token operator">:</span>  <span class="token comment">// Escape</span>
+                    quit <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+                    <span class="token keyword keyword-break">break</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            <span class="token keyword keyword-if">if</span> <span class="token punctuation">(</span>pApp<span class="token punctuation">)</span>
+            <span class="token punctuation">{</span>
+                pApp<span class="token operator">-&gt;</span><span class="token function">OnKeyDown</span><span class="token punctuation">(</span><span class="token generic-function"><span class="token function">static_cast</span><span class="token generic class-name"><span class="token operator">&lt;</span><span class="token keyword keyword-uint8_t">uint8_t</span><span class="token operator">&gt;</span></span></span><span class="token punctuation">(</span>event<span class="token punctuation">.</span>xkey<span class="token punctuation">.</span>keycode<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword keyword-break">break</span><span class="token punctuation">;</span>
+
+        <span class="token keyword keyword-case">case</span> KeyRelease<span class="token operator">:</span>
+        <span class="token punctuation">{</span>
+            <span class="token keyword keyword-if">if</span> <span class="token punctuation">(</span>pApp<span class="token punctuation">)</span>
+            <span class="token punctuation">{</span>
+                pApp<span class="token operator">-&gt;</span><span class="token function">OnKeyDown</span><span class="token punctuation">(</span><span class="token generic-function"><span class="token function">static_cast</span><span class="token generic class-name"><span class="token operator">&lt;</span><span class="token keyword keyword-uint8_t">uint8_t</span><span class="token operator">&gt;</span></span></span><span class="token punctuation">(</span>event<span class="token punctuation">.</span>xkey<span class="token punctuation">.</span>keycode<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword keyword-break">break</span><span class="token punctuation">;</span>
+        
+        <span class="token keyword keyword-default">default</span><span class="token operator">:</span>
+            <span class="token keyword keyword-break">break</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre><br>
+<p>In this case, we are calling specific application functions to handle key press and release events.</p>
+<p>Also, we check the <strong>xclient</strong> field of the event to verify that it contains the ID of the atom associated with the <strong>WM_DELETE_WINDOW</strong> property. In that case, we set <strong>quit</strong> to <strong>true</strong> in order to exit the event loop. <br><br>
+Observe that <strong>data</strong> is a field of <strong>xclient</strong>, and it is defined as a union of 160-bit values where <strong>l</strong> represents an array of five long (32-bit) values. Also, the <strong>type</strong> field of <strong>xclient</strong> will contain the ID of the atom associated with the <strong>WM_PROTOCOLS</strong> property.</p>
+
+      </div>
+      
+      
+    
+    
+    
+    
+    
+    
+  
+    </body></html>

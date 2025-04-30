@@ -1,0 +1,316 @@
+
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+
+@font-face {
+    font-family: "Bahnschrift REY";
+    src: local("Bahnschrift"), url("https://github.com/flying-whales/flying-whales/raw/20e98b4dd0388a3fafd09acb8b07e5bd3dc701b9/Assets/Fonts/bahnschrift.ttf") format(ttf);
+}
+
+@font-face {
+    font-family: "AudioLink Mono Bold REY";
+    src: local('AudioLink Mono Bold'), url("https://audiolink.dev/gallery/AudioLinkMono-Regular.ttf") format(ttf);
+}
+
+@font-face {
+    font-family: "Emoji REY";
+    src: url("https://github.com/KingDragoness/Shopkeepers/raw/952118221585de23b747560b89ee17061e34c0f4/Project%20Shopkeepers%20root/Assets/Resources/Fonts/seguiemj.ttf");
+}
+
+.markdown-preview.markdown-preview {
+  // modify your style here
+  // eg: background-color: blue;
+    padding: 2em calc(40% - 457px + 2em) !important;
+
+
+    /**
+    h1 {
+        page-break-before: always;
+    }
+    */
+    font-size: 24px;
+    font-family: 'Bahnschrift', 'Emoji REY', monospace;
+        // prince needs 'Bahnschrift Light Condensed'
+    font-stretch: condensed;
+    font-weight: 100;
+
+    blockquote {
+        padding-top: 1em;
+        padding-bottom: 1em;
+        font-size: 90%;
+    }
+    code {
+        font-family: 'AudioLink Mono Bold REY', 'Lotion', 'Emoji REY', monospace;
+        font-size: 90%;
+    }
+    pre > code {
+        font-size: 16px;
+        // &.prince has different
+    }
+    .REY_SMALLER_CODE {
+        font-size: 0.7em;
+    }
+    .REY_SMALLER_CODE > pre > code {
+        font-size: 0.95em;
+        line-height: 100%;
+    }
+
+    ul > li, ol > li {
+        ol > li, ul > li {
+            font-family: 'Fira Sans Condensed', 'Emoji REY', monospace;
+            font-weight: 300;
+            font-size: 90%;
+        }
+    }
+
+    pre {
+        page-break-inside: auto;
+        /* REYNEP MOD */
+    }
+
+    h4 {
+        margin-bottom: 0.5em;
+    } 
+    h5 {
+        margin-top: 0.5em;
+        margin-bottom: 0;
+        padding-bottom: 0;
+    }
+
+    img {
+        -prince-image-resolution: 150dpi;        /* set an explicit DPI */
+    }
+    img.makeSmall_NoFlex {
+        -prince-image-resolution: 160dpi;        /* set an explicit DPI */
+    }
+    img.makeSmall {
+        -prince-image-resolution: 160dpi;        /* set an explicit DPI */
+        float: left; 
+        margin-right: 15px;
+    }
+    img.makeSmaller {
+        -prince-image-resolution: 180dpi;        /* set an explicit DPI */
+        float: left; 
+        margin-right: 20px;
+    }
+    img.makeSmallest {
+        -prince-image-resolution: 200dpi;        /* set an explicit DPI */
+        float: left; 
+        margin-right: 20px;
+    }
+
+    /** However, background-clip is not supported by princexml */
+    .REY_DocTitle {
+        text-align: center;
+        font-size: 30px;
+        background: linear-gradient(145deg, #ff7f00, #8e44ad); /* Orange to Purple Gradient */
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        letter-spacing: 2px;
+        margin: 0;
+        font-weight: bold;
+    }
+
+    .REY_PAGEBREAK {
+        margin-bottom: 300px;
+    }
+
+        // custom prince pdf export style
+        &.prince {
+            .REY_NOSHOW_PDF {
+                display: none !important;
+            }
+            .REY_PDF_MORE_HEIGHT {
+                margin-top: -70pt;
+            }
+            .REY_PAGEBREAK {
+                margin-bottom: 0px;
+            }
+            .REY_SMALLER_CODE > pre > code {
+                font-size: 1em;
+                line-height: 100%;
+            }
+
+            color: black !important;
+
+            font-family: 'Bahnschrift Light Condensed';
+            font-size: 12.5px;
+            font-weight: 100;
+
+            h1, h2, h3, h4, h5, h6 {
+                // font-family: 'Bahnschrift';
+                font-family: 'Quartist' !important;
+            }
+            h1, h2 {
+                margin-bottom: 0px;
+            }
+            h1 {
+                margin-top: 20px;
+            }
+            h2 {
+                margin-top: 20px;
+            }
+
+            ul > li, ol > li {
+                ol > li, ul > li {
+                    font-family: 'Fira Sans Condensed Light Italic', 'Emoji REY', monospace;
+                    font-size: 90%;
+                }
+            }
+            
+            pre {
+                max-width: 100%; /* Prevent overflow */
+            }
+
+            img {
+                max-width: 104%;
+                width:- 104%;
+                margin-left: -2%;
+                display: flex;
+            }
+        
+            pre {
+                line-height: 110%;
+            }
+            pre > code {
+                font-size: 11px;
+                white-space: pre-wrap; /* Enable word wrap */
+                word-wrap: break-word; /* Break words that exceed the width */
+                word-break: normal;
+                overflow-wrap: break-word; /* Prevent overflow */
+            }
+        }
+}
+
+
+
+
+
+
+
+/**
+MarkDown File Top part:-
+---
+id: "amVK_Docs"
+class: "DocumentClass1"
+---
+*/
+#amVK_Docs {
+    &.prince {
+        ul, ol {
+            // margin-left: 0.1em;
+        }
+    }
+}
+.DocumentClass1 {
+    &.prince {
+        ul, ol {
+            // margin-left: 0.1em;
+        }
+    }
+}
+.REY_Class1 {
+    &.prince {
+        font-size: 15px !important;
+        font-family: 'Neuton', 'CMU Serif', 'Quivira', 'Bahnschrift Light Condensed' !important;
+        font-weight: 200 !important;
+        line-height: 17px;
+    }
+}
+.REY_Class2 {
+    &.prince {
+        font-size: 15px !important;
+        font-family: 'Neuton', 'CMU Serif', 'Quivira', 'Bahnschrift Light Condensed' !important;
+        font-weight: 200 !important;
+        line-height: 17px;
+    }
+}
+.REY_Class3 {
+    &.prince {
+        font-size: 15px !important;
+        font-family: 'Quartist', 'Neuton', 'CMU Serif', 'Quivira', 'Bahnschrift Light Condensed' !important;
+        font-weight: 100 !important;
+        line-height: 17px;
+        color: black !important;
+
+        strong {
+            font-family: 'Neuton Bold' !important;
+        }
+    }
+}
+.REY_Class4 {
+    &.prince {
+        font-size: 14px !important;
+        font-family: 'CMU Serif', 'Quivira', 'Bahnschrift Light Condensed' !important;
+        font-weight: 100 !important;
+        line-height: 16px;
+        color: black !important;
+
+        strong {
+            font-size: 13px !important;
+            font-family: 'AudioLink Mono' !important;
+            font-weight: 700 !important;
+
+            background-color: #f0f0f0;
+            border-radius: 3px;
+            padding: .075em .3em;
+        }
+    }
+}
+
+/**
+@page { 
+    size: A4;
+
+    margin-top: 1cm;
+    margin-bottom: 1cm;
+    margin-outside: 1.5cm;
+    margin-inside: 1.5cm;
+
+    prince-image-resolution: 300dpi;
+
+    @bottom-center {
+        content: counter(page);
+        margin: 0;
+        margin-top: -1.3cm;
+        padding: 0;
+    }
+}
+*/
+
+@page { 
+    size: A4;
+
+    margin-top: 1cm;
+    margin-bottom: 0cm;
+    margin-outside: 1cm;
+    margin-inside: 1cm;
+
+    prince-image-resolution: 300dpi;
+
+    @bottom-center {
+        content: counter(page);
+        margin: 0;
+        margin-top: -1.3cm;
+        padding: 0;
+    }
+}
+
+
+
+
+
+/**
+    https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css?id=local-style
+*/
+
+/** I think this part means like.... Specific to only when CREATING THE PDF. But not like specific to PRINCE-XML */
+@media print {
+    color: black !important;
+}
+
+/** I think this part means like.... Specific to only when CREATING THE PDF. But yes like specific to PRINCE-XML */
+&.prince {
+    color: black !important;
+}
